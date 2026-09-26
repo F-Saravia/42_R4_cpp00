@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 12:34:51 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 21:26:11 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 22:26:55 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,11 @@ void			PhoneBook::add(
 							darkestsecret);
 }
 
-Contact*			PhoneBook::search_byId(int id) 
+const Contact*	PhoneBook::search_byId(int id) const
 {
 	if (id < 0 || id >= this->size)
 		return (NULL);
 	return (&(this->contacts[id]));
-}
-
-static std::string truncate_field(const std::string& str)
-{
-	if (CONTACT_FMTFIELD_WIDTH > 1 && str.length() > CONTACT_FMTFIELD_WIDTH)
-		return (str.substr(0, (CONTACT_FMTFIELD_WIDTH - 1)) += '.');
-	return (str);
 }
 
 std::ostream&	PhoneBook::to_outstream(std::ostream& outsteram) const
@@ -70,10 +63,10 @@ std::ostream&	PhoneBook::to_outstream(std::ostream& outsteram) const
 		outsteram << "The phonebook is empty" ;
 		return (outsteram);
 	}
-	outsteram << "|" << std::right << std::setw(10) << truncate_field("ID") ;
-	outsteram << "|" << std::right << std::setw(10) << truncate_field("Firstname") ;
-	outsteram << "|" << std::right << std::setw(10) << truncate_field("Lastname") ;
-	outsteram << "|" << std::right << std::setw(10) << truncate_field("Nickname") ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend("ID", CONTACT_FMTFIELD_WIDTH, '.') ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend("Firstname", CONTACT_FMTFIELD_WIDTH, '.') ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend("Lastname", CONTACT_FMTFIELD_WIDTH, '.') ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend("Nickname", CONTACT_FMTFIELD_WIDTH, '.') ;
 	outsteram << "|" << std::endl;
 	for (int i=0 ; i < this->size ; i++)
 		this->contacts[i].to_outstream_short(outsteram);

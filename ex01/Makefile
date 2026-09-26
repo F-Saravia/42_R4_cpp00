@@ -6,7 +6,7 @@
 #    By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/23 18:02:51 by fasaravi          #+#    #+#              #
-#    Updated: 2026/09/26 21:26:57 by fasaravi         ###   ########.fr        #
+#    Updated: 2026/09/26 22:29:31 by fasaravi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 INC			=	libft.hpp Contact.hpp PhoneBook.hpp
 
-SRC			=	ft_str_isdigits.cpp ft_str_iszero.cpp \
-				ft_strtrim.cpp ft_getline.cpp \
+SRC			=	ft_str_isdigits.cpp ft_str_iszero.cpp\
+				ft_strtrim.cpp  ft_str_truncend.cpp \
+				ft_getline.cpp \
 				Contact.cpp PhoneBook.cpp \
 				main.cpp
 

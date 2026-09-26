@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 12:34:51 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 21:26:17 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 22:27:16 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <iomanip>
 # include "Contact.hpp"
+# include "libft.hpp"
 # define MAX_CONTACTS 8
 
 class PhoneBook
@@ -36,7 +37,7 @@ class PhoneBook
 							const std::string& phonenumber, 
 							const std::string& darkestsecret 
 						);
-		Contact			*search_byId(int id);
+		const Contact	*search_byId(int id) const;
 		std::ostream&	to_outstream(std::ostream& outsteram) const;
 };
 

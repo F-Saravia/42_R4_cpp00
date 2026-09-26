@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 15:40:39 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 21:20:34 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 22:27:56 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,12 @@ Contact&	Contact::operator=(const Contact& to_copy)
 	return (*this);
 }
 
-static std::string truncate_field(const std::string& str)
-{
-	if (CONTACT_FMTFIELD_WIDTH > 1 && str.length() > CONTACT_FMTFIELD_WIDTH)
-		return (str.substr(0, (CONTACT_FMTFIELD_WIDTH - 1)) + '.');
-	return (str);
-}
-
 std::ostream&	Contact::to_outstream_short(std::ostream& outsteram) const
 {
 	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << this->id ;
-	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << truncate_field(this->firstname) ;
-	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << truncate_field(this->lastname) ;
-	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << truncate_field(this->nickname) ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend(this->firstname, CONTACT_FMTFIELD_WIDTH, '.') ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend(this->lastname, CONTACT_FMTFIELD_WIDTH, '.') ;
+	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << ft_str_truncend(this->nickname, CONTACT_FMTFIELD_WIDTH, '.') ;
 	outsteram << "|" << std::endl;
 	return (outsteram);
 }

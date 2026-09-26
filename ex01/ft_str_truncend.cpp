@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.hpp                                          :+:      :+:    :+:   */
+/*   ft_str_truncend.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/25 23:26:34 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 22:25:39 by fasaravi         ###   ########.fr       */
+/*   Created: 2026/09/26 22:21:29 by fasaravi          #+#    #+#             */
+/*   Updated: 2026/09/26 22:25:27 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_HPP
-# define LIBFT_HPP
+#include "libft.hpp"
 
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <ctype.h>
-
-bool		ft_str_iszero(const std::string& str);
-bool		ft_str_isdigits(const std::string& str);
-std::string	ft_strtrim(const std::string& str);
 std::string ft_str_truncend(
 				const std::string& str,
 				const std::string::size_type field_size,
-				const char append_printable_end);
-bool		ft_getline(
-				std::ostream& out,
-				const std::string& prompt,
-				std::istream& in,
-				std::string& line);
-
-#endif // LIBFT_HPP
+				const char append_printable_end)
+{
+	if (field_size > 1 && str.length() > field_size)
+	{
+		if (std::isprint(static_cast<unsigned char>(append_printable_end)))
+			return (str.substr(0, (field_size - 1)) + append_printable_end);
+		return (str.substr(0, (field_size)));
+	}
+	return (str);
+}

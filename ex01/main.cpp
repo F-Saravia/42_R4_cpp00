@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 17:57:36 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 18:43:34 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 22:02:36 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ static void	set_contact(PhoneBook& phonebook)
 
 static void	search_contact(PhoneBook& phonebook)
 {
-	int			selection = -1;
-	std::string	input = "";
-	Contact		*contact_ptr = NULL;
+	int				selection = -1;
+	std::string		input = "";
+	const Contact	*contact_ptr = NULL;
 
 	phonebook.to_outstream(std::cout);
 	if (phonebook.isempty())

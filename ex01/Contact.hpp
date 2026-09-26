@@ -6,17 +6,18 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 16:29:43 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 21:18:22 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 22:28:15 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <string>
-#include <iostream>
-#include <iomanip>
+# include <string>
+# include <iostream>
+# include <iomanip>
 # include <cstddef>
+# include "libft.hpp"
 # define CONTACT_FMTFIELD_WIDTH 10
 
 class Contact
