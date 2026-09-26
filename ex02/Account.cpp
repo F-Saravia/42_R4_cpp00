@@ -102,6 +102,7 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	Account::_displayTimestamp();
 	int	p_amount = this->_amount;
 	if (p_amount - withdrawal <= 0){
 		std::cout <<
@@ -116,7 +117,6 @@ bool	Account::makeWithdrawal( int withdrawal )
 	this->_amount -= withdrawal;
 	this->_nbWithdrawals += 1;
 
-	Account::_displayTimestamp();
 	std::cout <<
 	"index:"			<< this->_accountIndex		<< ";" <<
 	"p_amount:"			<< p_amount					<< ";" <<
