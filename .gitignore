@@ -1,0 +1,14 @@
+# vscode
+.vscode/
+
+# temp files
+*.swp
+*~
+
+# Artefacts
+megaphone
+phonebook
+account
+*.a
+*.o
+*.out
