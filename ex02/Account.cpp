@@ -49,12 +49,13 @@ void	Account::displayAccountsInfos( void )
 }
 
 
-Account::Account( int initial_deposit )
+Account::Account( int initial_deposit ) 
+:
+	_accountIndex(Account::_nbAccounts),
+	_amount(initial_deposit),
+	_nbDeposits(0),
+	_nbWithdrawals(0)
 {
-	this->_accountIndex = Account::_nbAccounts;
-	this->_amount = initial_deposit;
-	this->_nbDeposits = 0;
-	this->_nbWithdrawals = 0;
 	Account::_totalAmount += initial_deposit;
 	Account::_nbAccounts += 1;
 
@@ -104,7 +105,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 {
 	Account::_displayTimestamp();
 	int	p_amount = this->_amount;
-	if (p_amount - withdrawal < 0){
+	if (p_amount < withdrawal || withdrawal <= 0){
 		std::cout <<
 		"index:"		<< this->_accountIndex	<< ";" <<
 		"p_amount:"		<< p_amount				<< ";" <<
@@ -146,7 +147,6 @@ void	Account::_displayTimestamp( void )
 	std::time_t	now;
 	std::tm		*local_time;
 	char		buffer[16] = "YYYYMMDD_hhmmss";
-		// {'Y', 'Y', 'Y', 'Y', 'M', 'M', 'D', 'D', '_', 'h', 'h', 'm', 'm', 's', 's', 0};
 
 	now = std::time(NULL);
 	local_time = std::localtime(&now);
@@ -156,18 +156,15 @@ void	Account::_displayTimestamp( void )
 }
 
 Account::Account( void )
+:
+	_accountIndex(Account::_nbAccounts),
+	_amount(0),
+	_nbDeposits(0),
+	_nbWithdrawals(0)
 {
-	this->_accountIndex = Account::_nbAccounts;
-	this->_amount = 0;
-	this->_nbDeposits = 0;
-	this->_nbWithdrawals = 0;
 	Account::_nbAccounts += 1;
 	Account::_totalAmount += 0;
 }
-
-
-
-
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
