@@ -8,7 +8,7 @@
 # Artefacts
 megaphone
 phonebook
-account
+accounts
 *.a
 *.o
 *.out
