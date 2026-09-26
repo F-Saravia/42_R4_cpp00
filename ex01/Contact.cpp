@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 15:40:39 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 18:51:14 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 21:20:34 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ Contact::Contact()
 
 Contact::Contact(
 			int	id,
-			const std::string firstname, 
-			const std::string lastname, 
-			const std::string nickname, 
-			const std::string phonenumber, 
-			const std::string darkestsecret)
+			const std::string& firstname, 
+			const std::string& lastname, 
+			const std::string& nickname, 
+			const std::string& phonenumber, 
+			const std::string& darkestsecret)
 :	id(id),
 	firstname(firstname),
 	lastname(lastname),
@@ -51,7 +51,7 @@ static std::string truncate_field(const std::string& str)
 	return (str);
 }
 
-std::ostream&	Contact::to_outstream_short(std::ostream& outsteram)
+std::ostream&	Contact::to_outstream_short(std::ostream& outsteram) const
 {
 	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << this->id ;
 	outsteram << "|" << std::right << std::setw(CONTACT_FMTFIELD_WIDTH) << truncate_field(this->firstname) ;
@@ -61,7 +61,7 @@ std::ostream&	Contact::to_outstream_short(std::ostream& outsteram)
 	return (outsteram);
 }
 
-std::ostream&	Contact::to_outstream_long(std::ostream& outsteram)
+std::ostream&	Contact::to_outstream_long(std::ostream& outsteram) const
 {
 	outsteram << "ID: " << this->id << std::endl;
 	outsteram << "Firstname: " << this->firstname << std::endl;
@@ -71,4 +71,29 @@ std::ostream&	Contact::to_outstream_long(std::ostream& outsteram)
 	outsteram << "Darkest Secret: " << this->darkestsecret << std::endl;
 	outsteram << std::endl;
 	return (outsteram);
+}
+
+const std::string&	Contact::getFirstname(void) const
+{
+	return (this->firstname);
+}
+
+const std::string&	Contact::getLastname(void) const
+{
+	return (this->lastname);
+}
+
+const std::string&	Contact::getNickname(void) const
+{
+	return (this->nickname);
+}
+
+const std::string&	Contact::getPhonenumber(void) const
+{
+	return (this->phonenumber);
+}
+
+const std::string&	Contact::getDarkestsecret(void) const
+{
+	return (this->darkestsecret);
 }

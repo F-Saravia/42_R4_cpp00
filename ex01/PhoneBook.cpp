@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 12:34:51 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 18:17:19 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 21:26:11 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ PhoneBook::PhoneBook()
 {
 }
 
-bool			PhoneBook::isempty(void)
+bool			PhoneBook::isempty(void) const
 {
 	return (this->size == 0);
 }
 
 void			PhoneBook::add(
-					std::string firstname, 
-					std::string lastname, 
-					std::string nickname, 
-					std::string phonenumber, 
-					std::string darkestsecret 
+					const std::string& firstname, 
+					const std::string& lastname, 
+					const std::string& nickname, 
+					const std::string& phonenumber, 
+					const std::string& darkestsecret 
 				)
 {
 	if (MAX_CONTACTS < 1)
@@ -50,7 +50,7 @@ void			PhoneBook::add(
 							darkestsecret);
 }
 
-Contact*			PhoneBook::search_byId(int id)
+Contact*			PhoneBook::search_byId(int id) 
 {
 	if (id < 0 || id >= this->size)
 		return (NULL);
@@ -64,7 +64,7 @@ static std::string truncate_field(const std::string& str)
 	return (str);
 }
 
-std::ostream&	PhoneBook::to_outstream(std::ostream& outsteram)
+std::ostream&	PhoneBook::to_outstream(std::ostream& outsteram) const
 {
 	if (this->isempty()){
 		outsteram << "The phonebook is empty" ;

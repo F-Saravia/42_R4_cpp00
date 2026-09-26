@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 12:34:51 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 18:42:51 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 21:26:17 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <iomanip>
 # include "Contact.hpp"
 # define MAX_CONTACTS 8
-# define ERRMSG_INVALID_ID 8
 
 class PhoneBook
 {
@@ -29,16 +28,16 @@ class PhoneBook
 	
 	public :
 		PhoneBook();
-		bool			isempty(void);
+		bool			isempty(void) const;
 		void			add(
-							std::string firstname, 
-							std::string lastname, 
-							std::string nickname, 
-							std::string phonenumber, 
-							std::string darkestsecret 
+							const std::string& firstname, 
+							const std::string& lastname, 
+							const std::string& nickname, 
+							const std::string& phonenumber, 
+							const std::string& darkestsecret 
 						);
 		Contact			*search_byId(int id);
-		std::ostream&	to_outstream(std::ostream& outsteram);
+		std::ostream&	to_outstream(std::ostream& outsteram) const;
 };
 
 #endif //PHONEBOOK_HPP

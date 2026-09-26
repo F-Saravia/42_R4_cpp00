@@ -6,7 +6,7 @@
 /*   By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 16:29:43 by fasaravi          #+#    #+#             */
-/*   Updated: 2026/09/26 18:42:25 by fasaravi         ###   ########.fr       */
+/*   Updated: 2026/09/26 21:18:22 by fasaravi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,21 @@ class Contact
 	public:
 		Contact();
 		Contact(
-			int	id,
-			std::string firstname, 
-			std::string lastname, 
-			std::string nickname, 
-			std::string phonenumber, 
-			std::string darkestsecret 
+			int id,
+			const std::string& firstname, 
+			const std::string& lastname, 
+			const std::string& nickname, 
+			const std::string& phonenumber, 
+			const std::string& darkestsecret 
 		);
-		Contact& 		operator=(const Contact& to_copy);
-		std::ostream&	to_outstream_short(std::ostream& outsteram);
-		std::ostream&	to_outstream_long(std::ostream& outsteram);
+		Contact& 			operator=(const Contact& to_copy);
+		const std::string&	getFirstname(void) const;
+		const std::string&	getLastname(void) const;
+		const std::string&	getNickname(void) const;
+		const std::string&	getPhonenumber(void) const;
+		const std::string&	getDarkestsecret(void) const;
+		std::ostream&		to_outstream_short(std::ostream& outsteram) const;
+		std::ostream&		to_outstream_long(std::ostream& outsteram) const;
 };
 
 

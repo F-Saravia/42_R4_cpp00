@@ -6,7 +6,7 @@
 #    By: fasaravi <fasaravi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/23 18:02:51 by fasaravi          #+#    #+#              #
-#    Updated: 2026/09/26 18:10:04 by fasaravi         ###   ########.fr        #
+#    Updated: 2026/09/26 21:26:57 by fasaravi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ SRC			=	ft_str_isdigits.cpp ft_str_iszero.cpp \
 
 OBJ			=	$(SRC:.cpp=.o)
 
-all : $(INC) $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJ) 
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-%.o : %.cpp
+%.o : %.cpp $(INC) 
 	$(CXX) $(CXXFLAGS) -o $@ -c $< 
 
 clean :
